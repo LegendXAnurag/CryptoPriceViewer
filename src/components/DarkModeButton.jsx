@@ -1,17 +1,3 @@
-// import useDarkMode from "../hooks/useDarkMode";
-
-// export default function DarkModeButton(){
-//   const {theme,toggleTheme} = useDarkMode();
-//   return(<>
-//   <button
-//           onClick={toggleTheme}
-//           className="mt-6 px-6 py-2 bg-gray-800 text-white dark:bg-gray-200 dark:text-black rounded-md"
-//           >
-//           Toggle Dark Mode
-//   </button>
-//   </>)
-
-// }
 import useDarkMode from "../hooks/useDarkMode";
 
 export default function DarkModeButton() {

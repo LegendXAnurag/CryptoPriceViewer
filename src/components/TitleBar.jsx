@@ -2,6 +2,8 @@
 import DarkModeButton from "./DarkModeButton.jsx";
 import { useNavigate } from 'react-router-dom';
 import { FaHome } from 'react-icons/fa';
+import { useContext } from "react";
+import { CurrencyContext } from "../App.jsx";
   const currencies = {
     "aed": "AE", "ars": "AR", "aud": "AU", "bdt": "BD", "bhd": "BH",
     "bmd": "BM", "brl": "BR", "cad": "CA", "chf": "CH", "clp": "CL",
@@ -15,7 +17,8 @@ import { FaHome } from 'react-icons/fa';
     "zar": "ZA"
   };
   
-export default function TitleBar({ currency, setCurrency }) {
+export default function TitleBar() {
+  const {currency, setCurrency } = useContext(CurrencyContext);
   const navigate = useNavigate();
   return (
     <div className="sticky top-0 z-20 w-full bg-white dark:bg-gray-800 shadow-md">
@@ -34,8 +37,8 @@ export default function TitleBar({ currency, setCurrency }) {
           <div className="relative w-full sm:w-auto">
             <select
               value={currency}
-              onChange={(e)=> {setCurrency(e.target.value); console.log(e)}}
-              className="w-full sm:w-auto appearance-none bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md py-2 pl-3 pr-10 text-gray-700 dark:text-white leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              onChange={(e)=> {setCurrency(e.target.value); console.log(e.target.value)}}
+              className="w-full sm:w-auto  bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md py-2 pl-3 pr-10 text-gray-700 dark:text-white leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
             >
               {Object.entries(currencies).map(([currencyCode, countryCode]) => (
   <option key={currencyCode} value={currencyCode}>
@@ -43,11 +46,11 @@ export default function TitleBar({ currency, setCurrency }) {
   </option>
 ))}
               </select>
-<img
-  src={`https://flagsapi.com/${currencies[currency]}/flat/64.png`}
-  alt={`${currency} flag`}
-  className="absolute right-2 top-1/2 transform -translate-y-1/2 w-6 h-4 object-cover rounded"
-  />
+            <img
+              src={`https://flagsapi.com/${currencies[currency]}/flat/64.png`}
+              alt={`${currency} flag`}
+              className="absolute right-6 top-1/2 transform -translate-y-1/2 w-6 h-4 object-cover rounded"
+              />
           </div>
           <DarkModeButton />
         </div>

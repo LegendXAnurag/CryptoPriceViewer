@@ -10,10 +10,9 @@ function SearchBar({ setQuery }) {
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto  bg-gray-900 px-4 py-6 
+    <div className="w-full max-w-3xl mx-auto  px-4 py-6 
     sm:py-6 md:py-8
     ">
-      {/* my-4 sm:my-6 md:my-8 lg:my-10 */}
       <div className="relative">
         <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
           Search Cryptocurrency

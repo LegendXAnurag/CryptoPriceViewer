@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ReactApexChart from 'react-apexcharts';
+import { CurrencyContext } from "../App";
+import TitleBar from "./TitleBar";
 
-const Coin = ({ currency }) => {
+const Coin = () => {
+  const {currency} = useContext(CurrencyContext);
   const { coin } = useParams();
   const [coinData, setCoinData] = useState(null);
   const [priceChartData, setPriceChartData] = useState([]);
@@ -186,17 +189,17 @@ const Coin = ({ currency }) => {
 
   if (loading) return <div className="text-center p-10 text-xl dark:text-white">Loading...</div>;
 
-  return (
+  return (<><TitleBar/>
     <div className="p-6 mx-auto bg-white dark:bg-gray-900 text-gray-900 dark:text-white w-[100%] md:w-[100%]">
       {/* Coin Details */}
       <div className="bg-gray-100 dark:bg-gray-800 shadow-lg rounded-lg p-6 mb-6">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center mb-4 md:mb-0">
-            <img src={coinData && coin.image} alt={coinData.name} className="w-16 h-16 mr-4" />
+            <img src={coinData?.image} alt={coinData?.name} className="w-16 h-16 mr-4" />
             <div>
-              <h1 className="text-3xl font-bold">{coinData.name} ({coinData.symbol.toUpperCase()})</h1>
+              <h1 className="text-3xl font-bold">{coinData?.name} ({coinData.symbol.toUpperCase()})</h1>
               <p className="text-2xl font-semibold text-gray-600 dark:text-gray-300">
-                {currencyFormatter.format(coinData.current_price)}
+                {currencyFormatter.format(coinData?.current_price)}
               </p>
             </div>
           </div>
@@ -269,7 +272,7 @@ const Coin = ({ currency }) => {
         </div>
       </div>
     </div>
-  );
+  </>);
 };
 
 export default Coin;
