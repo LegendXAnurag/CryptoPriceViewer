@@ -197,27 +197,27 @@ const Coin = () => {
           <div className="flex items-center mb-4 md:mb-0">
             <img src={coinData?.image} alt={coinData?.name} className="w-16 h-16 mr-4" />
             <div>
-              <h1 className="text-3xl font-bold">{coinData?.name} ({coinData.symbol.toUpperCase()})</h1>
+              <h1 className="text-3xl font-bold">{coinData?.name} ({coinData?.symbol.toUpperCase()})</h1>
               <p className="text-2xl font-semibold text-gray-600 dark:text-gray-300">
                 {currencyFormatter.format(coinData?.current_price)}
               </p>
             </div>
           </div>
           <div className="text-right">
-            <p className="text-lg text-gray-600 dark:text-gray-400">Market Cap Rank: #{coinData.market_cap_rank}</p>
-            <p className="text-lg text-gray-600 dark:text-gray-400">Market Cap: {currencyFormatter.format(coinData.market_cap)}</p>
-            <p className="text-lg text-gray-600 dark:text-gray-400">24h Volume: {currencyFormatter.format(coinData.total_volume)}</p>
-            <p className={`text-lg font-semibold ${coinData.price_change_percentage_24h >= 0 ? "text-green-500" : "text-red-500"}`}>
-              24h Change: {coinData.price_change_percentage_24h.toFixed(2)}%
+            <p className="text-lg text-gray-600 dark:text-gray-400">Market Cap Rank: #{coinData?.market_cap_rank}</p>
+            <p className="text-lg text-gray-600 dark:text-gray-400">Market Cap: {currencyFormatter.format(coinData?.market_cap)}</p>
+            <p className="text-lg text-gray-600 dark:text-gray-400">24h Volume: {currencyFormatter.format(coinData?.total_volume)}</p>
+            <p className={`text-lg font-semibold ${coinData?.price_change_percentage_24h >= 0 ? "text-green-500" : "text-red-500"}`}>
+              24h Change: {coinData?.price_change_percentage_24h.toFixed(2)}%
             </p>
-            <p className={`text-lg font-semibold ${coinData.market_cap_change_percentage_24h >= 0 ? "text-green-500" : "text-red-500"}`}>
-              Market Cap 24h Change: {coinData.market_cap_change_percentage_24h.toFixed(2)}%
+            <p className={`text-lg font-semibold ${coinData?.market_cap_change_percentage_24h >= 0 ? "text-green-500" : "text-red-500"}`}>
+              Market Cap 24h Change: {coinData?.market_cap_change_percentage_24h.toFixed(2)}%
             </p>
-            <p className="text-lg text-gray-600 dark:text-gray-400">All Time High: {currencyFormatter.format(coinData.ath)}</p>
-            <p className="text-lg text-gray-600 dark:text-gray-400">ATH Date: {new Date(coinData.ath_date).toLocaleDateString()}</p>
-            <p className="text-lg text-gray-600 dark:text-gray-400">All Time Low: {currencyFormatter.format(coinData.atl)}</p>
-            <p className={`text-lg font-semibold ${coinData.ath_change_percentage >= 0 ? "text-green-500" : "text-red-500"}`}>
-              ATH Change %: {coinData.ath_change_percentage.toFixed(2)}%
+            <p className="text-lg text-gray-600 dark:text-gray-400">All Time High: {currencyFormatter.format(coinData?.ath)}</p>
+            <p className="text-lg text-gray-600 dark:text-gray-400">ATH Date: {new Date(coinData?.ath_date).toLocaleDateString()}</p>
+            <p className="text-lg text-gray-600 dark:text-gray-400">All Time Low: {currencyFormatter.format(coinData?.atl)}</p>
+            <p className={`text-lg font-semibold ${coinData?.ath_change_percentage >= 0 ? "text-green-500" : "text-red-500"}`}>
+              ATH Change %: {coinData?.ath_change_percentage.toFixed(2)}%
             </p>
           </div>
         </div>
