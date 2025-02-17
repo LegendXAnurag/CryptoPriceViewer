@@ -34,7 +34,7 @@
 
       try {
         const res = await axios.get(url
-          +`&x_cg_demo_api_key=${import.meta.env.VITE_TOKEN}`
+          // +`&x_cg_demo_api_key=${import.meta.env.VITE_TOKEN}`
           
         );
         setPreviousData(allCoins);
