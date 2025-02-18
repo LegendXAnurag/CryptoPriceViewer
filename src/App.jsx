@@ -1,7 +1,7 @@
 import { useState ,useEffect, createContext} from 'react'
 import './App.css'
 import HomePage from './components/HomePage'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, createHashRouter, RouterProvider } from 'react-router-dom'
 import Coin from './components/Coin'
 import TitleBar from './components/TitleBar'
 
@@ -28,7 +28,7 @@ useEffect(() => {
 }, []);
 
   const [currency, setCurrency] = useState("usd")
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element:<> <HomePage/></>
