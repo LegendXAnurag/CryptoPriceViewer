@@ -28,6 +28,7 @@ const Coin = () => {
         setLoading(true);
         const marketRes = await axios.get(
           `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${coin}`
+          +`&x_cg_demo_api_key=${import.meta.env.VITE_TOKEN}`
         );
         setCoinData(marketRes.data[0]);
       } catch (error) {
@@ -46,6 +47,7 @@ const Coin = () => {
         setPriceChartLoading(true);
         const chartRes = await axios.get(
           `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=${currency}&days=${priceDays}`
+            +`&x_cg_demo_api_key=${import.meta.env.VITE_TOKEN}`
         );
         setPriceChartData(
           chartRes.data.prices.map(([timestamp, price]) => ({
@@ -69,6 +71,7 @@ const Coin = () => {
         setOhlcChartLoading(true);
         const ohlcRes = await axios.get(
           `https://api.coingecko.com/api/v3/coins/${coin}/ohlc?vs_currency=${currency}&days=${ohlcDays}`
+            +`&x_cg_demo_api_key=${import.meta.env.VITE_TOKEN}`
         );
         setCandlestickData(
           ohlcRes.data.map(([timestamp, open, high, low, close]) => ({
